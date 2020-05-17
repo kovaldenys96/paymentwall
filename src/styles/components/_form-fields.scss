@@ -1,0 +1,45 @@
+@import 'variables';
+@import 'mixins';
+
+.pwl-select {
+  width: 100%;
+  height: $elem-height;
+  padding: 0 $elem-sm-side-padding;
+  border: none;
+  border-radius: $elem-border-radius;
+  background: $light;
+  box-shadow: $primary-shadow;
+
+  &:focus {
+    outline: 1px solid $yellow;
+  }
+
+  &::-ms-expand {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  &__option {
+    &:hover {
+      box-shadow: $primary-shadow;
+    }
+
+    &:active {
+      background: $light-gray;
+    }
+  }
+}
+
+.form-field {
+  line-height: $elem-height;
+  width: 100%;
+
+  &--sm {
+    width: 70px;
+  }
+}
+
+.errors {
+  font-size: 75%;
+}

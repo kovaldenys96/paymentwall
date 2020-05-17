@@ -1,0 +1,27 @@
+.success {
+  padding-top: 56px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  height: 300px;
+  margin: auto;
+  text-align: center;
+
+  &__icon {
+    height: 150px;
+    width: 150px;
+    margin: auto;
+    fill: #32BEA6;
+  }
+
+  &__text {
+    font-size: 2em;
+    font-weight: 600;
+    line-height: 1em;
+    text-align: center;
+    color: #32BEA6;
+  }
+}

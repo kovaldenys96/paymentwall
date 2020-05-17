@@ -1,0 +1,15 @@
+<mat-button-toggle-group class="select"
+                         [value]="value"
+                         (change)="onChange($event.value)">
+   <mat-button-toggle *ngFor="let paymentSystem of paymentSystems; trackBy: trackByFn"
+                      class="select__button"
+                      [disableRipple]="true"
+                      [value]="paymentSystem.id">
+      <span class="select__label">
+         <span class="select__image">
+             <img [src]="paymentSystem.imgUrl" [attr.aria-label]="paymentSystem.name" alt="paymentSystem.name" />
+         </span>
+         <span class="select__text">{{ paymentSystem.name }}</span>
+      </span>
+   </mat-button-toggle>
+</mat-button-toggle-group>

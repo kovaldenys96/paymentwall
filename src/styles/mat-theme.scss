@@ -1,0 +1,77 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+@import 'variables';
+
+.mat-select-panel {
+  display: inline-block;
+  background: $light;
+  box-shadow: $primary-shadow;
+}
+
+.mat-button-toggle.mat-button-toggle-checked .mat-button-toggle-focus-overlay {
+  border-bottom: none;
+}
+
+.mat-select-trigger {
+  line-height: $elem-height;
+}
+
+
+/* form field */
+.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+.mat-form-field {
+  .mat-form-field-infix {
+    width: 100%;
+    height: $elem-height;
+    padding: 0 $elem-sm-side-padding;
+    border: 1px solid $light;
+    border-radius: $elem-border-radius;
+    background: $light;
+    box-shadow: $primary-shadow;
+
+    .mat-input-element {
+      height: $elem-height;
+    }
+
+    .mat-form-field-label-wrapper {
+      left: 0;
+      overflow: visible;
+    }
+
+    .mat-form-field-label {
+      line-height: $elem-height;
+      top: 0.84375em;
+
+      mat-label {
+        padding: 0 $elem-sm-side-padding;
+      }
+    }
+  }
+
+  &.mat-form-field-invalid .mat-form-field-infix {
+    border-color: $red;
+  }
+}
+
+.mat-error {
+  color: $red;
+}
+
+.mat-form-field.form-field--sm {
+  & .mat-input-element,
+  & .mat-form-field-label-wrapper {
+    text-align: center;
+  }
+}
+
+.mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
+.mat-form-field-appearance-legacy.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill + .mat-form-field-label-wrapper .mat-form-field-label {
+  transform: translateY(-1.5em) scale(0.75) perspective(100px) translateZ(0.001px);
+
+  mat-label {
+  }
+}

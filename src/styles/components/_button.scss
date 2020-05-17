@@ -1,0 +1,39 @@
+@import "variables";
+@import "mixins";
+
+.buttons {
+  width: 100%;
+  text-align: right;
+
+  &__button {
+    width: 100%;
+    height: $elem-height;
+    padding: 0 $elem-sm-side-padding;
+    cursor: pointer;
+    transition: all $sm-transition;
+    color: $dark-text;
+    border: none;
+    border-radius: $elem-border-radius;
+    background: $yellow;
+    box-shadow: $primary-shadow;
+
+    &:hover {
+      background: $light-yellow;
+    }
+
+    &:active {
+      background: $dark-yellow;
+    }
+
+    &[disabled] {
+      cursor: default;
+      color: $light-text;
+      background: $gray;
+    }
+
+    @include landscape-phone-and-up {
+      width: 200px;
+    }
+  }
+}
+

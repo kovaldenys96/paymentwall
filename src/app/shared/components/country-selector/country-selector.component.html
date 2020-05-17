@@ -1,0 +1,24 @@
+<select *ngIf="showNativeSelector; else matSelector"
+        class="pwl-select"
+        [ngModel]="value"
+        (ngModelChange)="onChange($event)">
+    <option class="pwl-select__option" value="" disabled>Please select the country</option>
+    <option *ngFor="let country of countries; trackBy: trackByFn"
+            class="pwl-select__option"
+            [value]="country.code">
+        {{ country.name }}
+    </option>
+</select>
+
+<ng-template #matSelector>
+    <mat-select class="pwl-select"
+                [value]="value"
+                (valueChange)="onChange($event)">
+        <mat-option *ngFor="let country of countries; trackBy: trackByFn"
+                    class="pwl-select__option"
+                    [value]="country.code">
+            <mat-icon [svgIcon]="'sprite:flag-' + country.code" [title]="country.name"></mat-icon>
+            {{ country.name }}
+        </mat-option>
+    </mat-select>
+</ng-template>

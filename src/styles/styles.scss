@@ -1,0 +1,15 @@
+@import "reset";
+@import "mat-theme";
+@import "components/button";
+@import "components/form-fields";
+
+@import "mixins";
+
+body {
+  font-size: 16px;
+
+  @include landscape-phone-and-up {
+    font-size: 18px;
+  }
+}
+
