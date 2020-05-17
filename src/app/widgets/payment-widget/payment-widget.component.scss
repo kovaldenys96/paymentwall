@@ -1,0 +1,51 @@
+@import "variables";
+@import "mixins";
+
+.card {
+  margin: $block-margin auto;
+  padding: $elem-md-side-padding $elem-sm-side-padding;
+  border-radius: $elem-border-radius;
+  box-shadow: $tile-shadow;
+
+  @include landscape-phone-and-up {
+    width: 560px;
+  }
+
+  &__item {
+
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+
+    &--row {
+      text-align: right;
+      width: 240px;
+      margin-left: auto;
+
+      > * {
+        margin: 0;
+      }
+
+      > * {
+        margin-left: $elem-side-margin;
+      }
+    }
+  }
+
+  &__input {
+    &--uppercase {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.container {
+  @include landscape-phone-and-up {
+    width: 560px;
+    margin: 0 auto;
+  }
+}
+
+.errors {
+  text-align: left;
+}

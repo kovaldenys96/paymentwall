@@ -1,0 +1,90 @@
+<div [formGroup]="form">
+   <div class="container">
+      <pwl-country-selector formControlName="countryCode"></pwl-country-selector>
+   </div>
+
+   <pwl-payment-system-selector formControlName="paymentSystem"
+                                [paymentSystems]="paymentSystems$ | async"
+   ></pwl-payment-system-selector>
+
+   <div *ngIf="form.get('paymentSystem').value"
+        class="card"
+        formGroupName="cardInfo">
+
+      <div class="card__item">
+         <mat-form-field class="form-field">
+            <mat-label>Card holder</mat-label>
+            <input class="card__input--uppercase" matInput formControlName="cardHolder" maxlength="40"/>
+            <mat-error *ngIf="cardInfoForm.get('cardHolder').errors?.required">This field is required.</mat-error>
+            <mat-error *ngIf="cardInfoForm.get('cardHolder').errors?.pattern">Please enter a correct card holder name.
+            </mat-error>
+         </mat-form-field>
+      </div>
+
+      <div class="card__item">
+         <mat-form-field class="form-field">
+            <mat-label>Card number</mat-label>
+            <input matInput formControlName="cardNumber" mask="0000 0000 0000 0000"/>
+            <mat-error *ngIf="cardInfoForm.get('cardNumber').errors?.required">This field is required.</mat-error>
+            <mat-error *ngIf="cardInfoForm.get('cardNumber').errors?.mask">Card number must contain 16 characters.
+            </mat-error>
+            <mat-error *ngIf="cardInfoForm.get('cardNumber').errors?.luhn">Number of credit card isn't valid. Please
+               check it.
+            </mat-error>
+         </mat-form-field>
+      </div>
+
+      <div class="card__item card__item--row">
+         <mat-form-field class="form-field form-field--sm">
+            <mat-label>MM</mat-label>
+            <input matInput formControlName="expirationMonth" mask="90"/>
+         </mat-form-field>
+
+         <span>/</span>
+
+         <mat-form-field class="form-field form-field--sm">
+            <mat-label>YY</mat-label>
+            <input matInput formControlName="expirationYear" mask="00"/>
+         </mat-form-field>
+
+         <mat-form-field class="form-field form-field--sm">
+            <mat-label>CVV</mat-label>
+            <input matInput formControlName="cvv" mask="000"/>
+         </mat-form-field>
+
+         <div class="errors">
+            <div *ngIf="(cardInfoForm.get('expirationMonth').touched && cardInfoForm.get('expirationMonth').invalid)
+                        || (cardInfoForm.get('expirationYear').touched && cardInfoForm.get('expirationYear').invalid)">
+               <mat-error *ngIf="cardInfoForm.get('expirationMonth').errors?.required
+                           || cardInfoForm.get('expirationYear').errors?.required">
+                  Expiration date is required.
+               </mat-error>
+               <mat-error *ngIf="cardInfoForm.get('expirationMonth').errors?.mask
+                           || cardInfoForm.get('expirationYear').errors?.mask">
+                  Expiration date isn't valid.
+               </mat-error>
+               <mat-error *ngIf="cardInfoForm.get('expirationMonth').errors?.pattern">
+                  Month should be from 1 till 12 only.
+               </mat-error>
+               <mat-error *ngIf="cardInfoForm.get('expirationYear').errors?.min">
+                  Year couldn't be in the past.
+               </mat-error>
+            </div>
+            <div *ngIf="cardInfoForm.get('cvv').touched && cardInfoForm.get('cvv').invalid">
+               <mat-error *ngIf="cardInfoForm.get('cvv').errors?.required">CVV is required.</mat-error>
+               <mat-error *ngIf="cardInfoForm.get('cvv').errors?.mask">CVV isn't valid.</mat-error>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="container">
+      <div class="buttons">
+         <button class="buttons__button"
+                 [disabled]="form.invalid"
+                 (click)="onSubmitClick()">
+            Pay {{ amount }} {{ currency }}
+         </button>
+      </div>
+   </div>
+</div>
