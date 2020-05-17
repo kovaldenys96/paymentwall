@@ -16,7 +16,7 @@ export class PaymentSystemSelectorComponent implements ControlValueAccessor {
   @Input() value: string;
 
   private _paymentSystems: PaymentSystem[];
-  
+
   @Input() set paymentSystems(paymentSystems: PaymentSystem[]) {
     this._paymentSystems = paymentSystems;
     if (this.value && !paymentSystems.find(x => x.id === this.value)) {

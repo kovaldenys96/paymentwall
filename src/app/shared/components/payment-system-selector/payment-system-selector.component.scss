@@ -15,22 +15,23 @@
 
   &__button {
     display: inline-block;
+    overflow: hidden;
     width: calc(50% - #{$elem-side-margin * 2});
     margin: $elem-side-margin;
-    background: $light-gray;
-    border-radius: $elem-border-radius;
     transition: all $sm-transition;
     border: 1px solid $light;
+    border-radius: $elem-border-radius;
+    background: $light-gray;
 
     &:hover {
-      box-shadow: $primary-shadow;
       background: $light;
+      box-shadow: $primary-shadow;
     }
 
     &.mat-button-toggle-checked {
-      box-shadow: $accent-shadow;
-      background: $light;
       border-color: $yellow;
+      background: $light;
+      box-shadow: $accent-shadow;
     }
 
     @include landscape-phone-and-up {
@@ -54,8 +55,20 @@
   }
 
   &__text {
+    font-weight: 600;
     line-height: 1em;
     display: block;
-    font-weight: 600;
   }
+}
+
+.message {
+  width: 100%;
+  text-align: center;
+  color: $red;
+
+  @include landscape-phone-and-up {
+    width: 560px;
+    margin: 0 auto;
+  }
+
 }

@@ -7,6 +7,7 @@ export const environment: Environment = {
   production: true,
   traceRoutes: false,
   paymentwallApiUrl: PAYMENTWALL_API_URL,
+  /** Not secure, used just for test */
   paymentwallApiKey: 'd93d5a56e8f7cd92528bc12d165419c9',
   apiConfig: {
     paymentwall: {

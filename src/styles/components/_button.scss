@@ -15,7 +15,7 @@
     border: none;
     border-radius: $elem-border-radius;
     background: $yellow;
-    box-shadow: $primary-shadow;
+    box-shadow: $primary-shadow, $accent-shadow;
 
     &:hover {
       background: $light-yellow;

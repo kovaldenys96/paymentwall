@@ -1,0 +1,26 @@
+[
+  {
+    "id": "test",
+    "name": "Test Method",
+    "new_window": false,
+    "img_url": "https:\/\/api.paymentwall.com\/images\/ps_logos\/pm_dummy.png",
+    "img_class": "dummy",
+    "ps_type_id": 1
+  },
+  {
+    "id": "mint",
+    "name": "MINT",
+    "new_window": false,
+    "img_url": "https:\/\/api.paymentwall.com\/images\/ps_logos\/pm_mint.png",
+    "img_class": "mint",
+    "ps_type_id": 3
+  },
+  {
+    "id": "dollargeneral",
+    "name": "Dollar General",
+    "new_window": true,
+    "img_url": "https:\/\/api.paymentwall.com\/images\/ps_logos\/pm_dollargeneral.png",
+    "img_class": "dollargeneral",
+    "ps_type_id": 3
+  }
+]

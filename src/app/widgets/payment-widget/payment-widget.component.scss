@@ -5,7 +5,7 @@
   margin: $block-margin auto;
   padding: $elem-md-side-padding $elem-sm-side-padding;
   border-radius: $elem-border-radius;
-  box-shadow: $tile-shadow;
+  box-shadow: $accent-shadow;
 
   @include landscape-phone-and-up {
     width: 560px;

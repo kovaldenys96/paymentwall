@@ -11,8 +11,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dist": "ng build -c test --prod --base-href \"https://kovaldenys96.github.io/paymentwall/\"",
-    "deploy": "ngh --dir dist/frontend"
+    "dist": "ng build -c prod --base-href \"https://kovaldenys96.github.io/paymentwall/\" --output-path docs"
   },
   "private": true,
   "dependencies": {
